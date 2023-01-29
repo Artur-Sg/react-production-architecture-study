@@ -1,0 +1,27 @@
+{
+  "name": "react-production-architecture-study",
+  "version": "1.0.0",
+  "description": "A training project with the sequential development of a large production project on React, including setting up the entire infrastructure, test environment, data processing, etc.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Artur-Sg/react-production-architecture-study.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Artur-Sg/react-production-architecture-study/issues"
+  },
+  "homepage": "https://github.com/Artur-Sg/react-production-architecture-study#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.5.0",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
