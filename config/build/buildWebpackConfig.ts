@@ -1,12 +1,14 @@
 import { Configuration } from 'webpack';
-import { BuildOptions, BuildPaths } from './types/config';
-import { buildLoaders, buildPlugins, buildResolvers } from './';
-import webpackDevServer from 'webpack-dev-server';
+import { BuildOptions } from './types/config';
+import { buildDevServer, buildLoaders, buildPlugins, buildResolvers } from './';
 
 export function buildWebpackConfig({
-  mode,
+  mode = 'development',
+  port = 3000,
   paths: { entry, build, html },
 }: BuildOptions): Configuration {
+  const isDev = mode === 'development';
+
   const config = {
     mode,
     entry,
@@ -20,19 +22,12 @@ export function buildWebpackConfig({
       clean: true,
     },
     plugins: buildPlugins(html),
-  } as Configuration;
-
-  const isDev = mode === 'development';
-
-  if (isDev) {
-    config.devtool = 'inline-source-map';
-    config.devServer = {
-      static: './dist',
-    };
-    config.optimization = {
+    devtool: isDev ? 'inline-source-map' : undefined,
+    devServer: isDev ? buildDevServer(port) : undefined,
+    optimization: {
       runtimeChunk: 'single',
-    };
-  }
+    },
+  } as Configuration;
 
   return config;
 }
