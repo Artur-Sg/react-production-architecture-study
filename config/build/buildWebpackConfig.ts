@@ -13,7 +13,7 @@ export function buildWebpackConfig({
     mode,
     entry,
     module: {
-      rules: buildLoaders(),
+      rules: buildLoaders(isDev),
     },
     resolve: buildResolvers(),
     output: {
