@@ -1,11 +1,11 @@
-import { Configuration } from 'webpack';
-import { BuildOptions } from './types/config';
 import { buildDevServer, buildLoaders, buildPlugins, buildResolvers } from './';
+import { BuildOptions } from './types/config';
+import { Configuration } from 'webpack';
 
 export function buildWebpackConfig({
-  mode = 'development',
-  port = 3000,
-  paths: { entry, build, html },
+  mode,
+  port,
+  paths: { entry, build, html, src },
 }: BuildOptions): Configuration {
   const isDev = mode === 'development';
 
@@ -15,7 +15,7 @@ export function buildWebpackConfig({
     module: {
       rules: buildLoaders(isDev),
     },
-    resolve: buildResolvers(),
+    resolve: buildResolvers(src),
     output: {
       filename: '[name].[contenthash].js',
       path: build,
