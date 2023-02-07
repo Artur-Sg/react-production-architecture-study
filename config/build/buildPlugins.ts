@@ -16,7 +16,7 @@ export function buildPlugins(htmlPath: string): Array<WebpackPluginInstance> {
     new HtmlWebpackPlugin({
       template: htmlPath,
     }),
-    new ProgressPlugin(progressPluginHandler),
+    // new ProgressPlugin(progressPluginHandler),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',
