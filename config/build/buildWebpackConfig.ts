@@ -21,7 +21,7 @@ export function buildWebpackConfig({
       path: build,
       clean: true,
     },
-    plugins: buildPlugins(html),
+    plugins: buildPlugins(html, isDev),
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? buildDevServer(port) : undefined,
     optimization: {

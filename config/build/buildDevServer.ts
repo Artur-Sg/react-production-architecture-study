@@ -1,6 +1,8 @@
+import path from 'path';
+
 export function buildDevServer(port: number) {
   return {
-    static: './dist',
+    static: path.join('public'),
     port,
     historyApiFallback: true,
   };

@@ -1,6 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import { WebpackPluginInstance, ProgressPlugin } from 'webpack';
+import { WebpackPluginInstance, ProgressPlugin, DefinePlugin } from 'webpack';
 
 const progressPluginHandler = (
   percentage: number,
@@ -11,7 +11,10 @@ const progressPluginHandler = (
   console.info(percentage, message, ...args);
 };
 
-export function buildPlugins(htmlPath: string): Array<WebpackPluginInstance> {
+export function buildPlugins(
+  htmlPath: string,
+  isDev: boolean
+): Array<WebpackPluginInstance> {
   return [
     new HtmlWebpackPlugin({
       template: htmlPath,
@@ -20,6 +23,9 @@ export function buildPlugins(htmlPath: string): Array<WebpackPluginInstance> {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash:8].css',
       chunkFilename: 'css/[name].[contenthash:8].css',
+    }),
+    new DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
     }),
   ];
 }
