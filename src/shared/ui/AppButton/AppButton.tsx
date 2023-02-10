@@ -1,6 +1,6 @@
-import cls from './AppButton.module.scss';
 import { classNames } from '@shared/lib/classNames';
 import { ButtonHTMLAttributes, FC } from 'react';
+import cls from './AppButton.module.scss';
 
 export enum ThemeButton {
   CLEAR = 'clear',
@@ -8,7 +8,7 @@ export enum ThemeButton {
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: ThemeButton;
+  theme: ThemeButton;
 }
 
 const AppButton: FC<AppButtonProps> = (props) => {
@@ -16,7 +16,9 @@ const AppButton: FC<AppButtonProps> = (props) => {
 
   return (
     <button
+      type="button"
       className={classNames(cls.AppButton, [className, cls[theme]])}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >
       {children}

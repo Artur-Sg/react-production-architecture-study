@@ -1,7 +1,7 @@
 import AppButton, { ThemeButton } from '@shared/ui/AppButton/AppButton';
-import cls from './LangSwitcher.module.scss';
 import { classNames } from '@shared/lib/classNames';
 import { useTranslation } from 'react-i18next';
+import cls from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
   className?: string;
