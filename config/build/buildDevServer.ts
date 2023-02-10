@@ -5,5 +5,6 @@ export function buildDevServer(port: number) {
     static: path.join('public'),
     port,
     historyApiFallback: true,
+    hot: true,
   };
 }

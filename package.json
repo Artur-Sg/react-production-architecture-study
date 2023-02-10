@@ -8,7 +8,11 @@
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
     "watch": "webpack --watch",
-    "start": "webpack serve --open --env port=3001"
+    "start": "webpack serve --open --env port=3002",
+    "lint:ts": "eslint \"**/*.{ts,tsx}\"",
+    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:style": "stylelint \"**/*.scss\"",
+    "lint:style:fix": "stylelint \"**/*.scss\" --fix"
   },
   "repository": {
     "type": "git",
@@ -28,27 +32,39 @@
     "@types/react-dom": "^17.0.18",
     "@types/webpack": "^5.28.0",
     "@types/webpack-dev-server": "^4.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.51.0",
     "css-loader": "^6.7.3",
+    "eslint": "^8.33.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-standard-with-typescript": "^34.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-n": "^15.6.1",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
     "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "^2.7.2",
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
+    "stylelint": "^15.0.0",
+    "stylelint-config-standard-scss": "^6.1.0",
     "ts-loader": "^9.2.6",
     "ts-node": "^10.5.0",
-    "typescript": "^4.5.5",
-    "webpack": "^5.75.0",
+    "typescript": "^4.9.5",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
+    "html-webpack-plugin": "^5.5.0",
     "i18next": "^22.4.9",
     "i18next-browser-languagedetector": "^7.0.1",
     "i18next-http-backend": "^2.1.1",
+    "mini-css-extract-plugin": "^2.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-i18next": "^12.1.5",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "webpack": "^5.75.0"
   }
 }

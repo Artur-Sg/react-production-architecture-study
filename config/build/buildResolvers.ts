@@ -1,5 +1,5 @@
-import path from 'path';
 import { ResolveOptions } from 'webpack';
+import path from 'path';
 
 export function buildResolvers(src: string): ResolveOptions {
   return {
