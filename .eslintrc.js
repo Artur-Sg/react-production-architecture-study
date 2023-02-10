@@ -3,14 +3,19 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'airbnb-typescript'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb',
+    'airbnb-typescript',
+    'plugin:i18next/recommended',
+  ],
   overrides: [],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['react'],
+  plugins: ['react', '@typescript-eslint', 'i18next'],
   rules: {
     indent: [2, 2],
     'import/prefer-default-export': 'off',
@@ -44,5 +49,6 @@ module.exports = {
         ExportDeclaration: 'never',
       },
     ],
+    'i18next/no-literal-string': ['error', { markupOnly: true }],
   },
 };
