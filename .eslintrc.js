@@ -50,5 +50,6 @@ module.exports = {
       },
     ],
     'i18next/no-literal-string': ['error', { markupOnly: true }],
+    'max-len': ['error', { ignoreComments: true }],
   },
 };
