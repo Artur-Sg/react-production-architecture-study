@@ -2,6 +2,26 @@ import { RuleSetRule } from 'webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
 export function buildLoaders(isDev: boolean): RuleSetRule[] {
+  const babelLoader = {
+    test: /\.(jsx?|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: 'babel-loader',
+      options: {
+        presets: ['@babel/preset-env'],
+        plugins: [
+          [
+            'i18next-extract',
+            {
+              locales: ['ru', 'en'],
+              keyAsDefaultValue: true,
+            },
+          ],
+        ],
+      },
+    },
+  };
+
   // Without typescript - need to add babel-loader
   const typeScripLoader = {
     test: /\.tsx?$/,
@@ -46,5 +66,5 @@ export function buildLoaders(isDev: boolean): RuleSetRule[] {
     ],
   };
 
-  return [typeScripLoader, styleLoader, svgLoader, fileLoader];
+  return [babelLoader, typeScripLoader, styleLoader, svgLoader, fileLoader];
 }
