@@ -25,6 +25,9 @@
       "@helpers/*": [
         "./src/helpers/*"
       ],
+      "@pages": [
+        "./src/pages"
+      ],
       "@pages/*": [
         "./src/pages/*"
       ],
