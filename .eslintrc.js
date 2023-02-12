@@ -50,6 +50,7 @@ module.exports = {
       },
     ],
     'i18next/no-literal-string': ['error', { markupOnly: true }],
-    'max-len': ['error', { ignoreComments: true }],
+    'max-len': ['error', { code: 100, ignoreComments: true }],
+    'react/jsx-wrap-multilines': ['error', { declaration: false, assignment: false }],
   },
 };
