@@ -9,7 +9,14 @@ module.exports = {
     'airbnb-typescript',
     'plugin:i18next/recommended',
   ],
-  overrides: [],
+  overrides: [
+    {
+      files: ['**/src/**/*.test.{ts, tsx}'],
+      rules: {
+        'i18next/no-literal-string': off,
+      },
+    },
+  ],
   parserOptions: {
     ecmaVersion: 'latest',
     sourceType: 'module',
@@ -52,5 +59,11 @@ module.exports = {
     'i18next/no-literal-string': ['error', { markupOnly: true }],
     'max-len': ['error', { code: 100, ignoreComments: true }],
     'react/jsx-wrap-multilines': ['error', { declaration: false, assignment: false }],
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: true,
+      },
+    ],
   },
 };

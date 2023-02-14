@@ -8,7 +8,7 @@ export enum ThemeButton {
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme: ThemeButton;
+  theme?: ThemeButton;
 }
 
 const AppButton: FC<AppButtonProps> = (props) => {
@@ -17,7 +17,7 @@ const AppButton: FC<AppButtonProps> = (props) => {
   return (
     <button
       type="button"
-      className={classNames(cls.AppButton, [className, cls[theme]])}
+      className={classNames(cls.AppButton, [className, theme ? cls[theme] : ''])}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >

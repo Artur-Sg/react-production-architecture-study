@@ -4,5 +4,7 @@
   "language": "Русский",
   "toggle": "Переключить",
   "mainPage": "Главная",
-  "aboutPage": "О сайте"
+  "aboutPage": "О сайте",
+  "errorText": "Произошла ошибка",
+  "updatePage": "Обновить страницу"
 }
