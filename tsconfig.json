@@ -45,9 +45,10 @@
     }
   },
   "include": [
-    "./config/jest/*.ts",
-    "./config/jest/*.tsx",
+    "./config/**/*.ts",
+    "./config/**/*.tsx",
     "./src/**/*.ts",
-    "./src/**/*.tsx"
+    "./src/**/*.tsx",
+    "./*.ts"
   ],
 }
