@@ -4,5 +4,7 @@
   "language": "English",
   "toggle": "Toggle",
   "mainPage": "Main",
-  "aboutPage": "About"
+  "aboutPage": "About",
+  "errorText": "An Error Occurred",
+  "updatePage": "Update Page"
 }

@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { WebpackPluginInstance, ProgressPlugin, DefinePlugin } from 'webpack';
 
 const progressPluginHandler = (percentage: number, message: string, ...args: unknown[]) => {
@@ -31,5 +32,6 @@ export function buildPlugins(htmlPath: string, isDev: boolean): Array<WebpackPlu
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
+    new BundleAnalyzerPlugin({ openAnalyzer: false }),
   ];
 }
