@@ -1,0 +1,43 @@
+name: Run linters, tests and project build
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+jobs:
+  main:
+    runs-on: ${{ fromJSON('["ubuntu-latest", "self-hosted"]')[github.repository == 'github/docs-internal'] }}
+    strategy:
+      fail-fast: true
+      matrix:
+        node-version: [17.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js ${{matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{matrix.node-version}}
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: build production project
+        run: npm run build:prod
+
+      - name: lint typescript
+        run: npm run lint:ts
+
+      - name: lint styles
+        run: npm run lint:style
+
+      - name: tests
+        run: npm run test:unit
+
+      - name: build storybook
+        run: npm run build:storybook
+
+      - name: loki
+        run: npm run test:ui:ci

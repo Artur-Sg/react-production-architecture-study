@@ -32,6 +32,6 @@ export function buildPlugins(htmlPath: string, isDev: boolean): Array<WebpackPlu
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
     }),
-    new BundleAnalyzerPlugin({ openAnalyzer: false }),
+    new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: isDev ? 'server' : 'disabled' }),
   ];
 }
