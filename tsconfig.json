@@ -44,11 +44,20 @@
       "module": "CommonJS"
     }
   },
+  "resolve": {
+    "extensions": [
+      ".ts",
+      ".tsx",
+      ".js",
+      ".jsx",
+      ".json",
+      ".test.ts",
+      ".test.tsx"
+    ],
+  },
   "include": [
-    "./config/**/*.ts",
-    "./config/**/*.tsx",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
-    "./*.ts"
-  ],
+    "./src/**/*",
+    "./config/**/*",
+    "./*"
+  ]
 }
