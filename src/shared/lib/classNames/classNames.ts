@@ -1,6 +1,6 @@
 // custom analogue of classnames lib
 
-type Mods = Record<string, boolean | string>;
+export type Mods = Record<string, boolean | string>;
 
 export function classNames(
   cls: string,

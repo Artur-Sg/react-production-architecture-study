@@ -29,15 +29,20 @@ jobs:
 
       - name: lint typescript
         run: npm run lint:ts
+        if: always()
 
       - name: lint styles
         run: npm run lint:style
+        if: always()
 
       - name: tests
         run: npm run test:unit
+        if: always()
 
       - name: build storybook
         run: npm run build:storybook
+        if: always()
 
       - name: loki
         run: npm run test:ui:ci
+        if: always()

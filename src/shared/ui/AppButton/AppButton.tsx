@@ -2,23 +2,42 @@ import { classNames } from '@shared/lib/classNames';
 import { ButtonHTMLAttributes, FC } from 'react';
 import cls from './AppButton.module.scss';
 
-export enum ThemeButton {
+export enum ButtonTheme {
   CLEAR = 'clear',
   OUTLINE = 'outline',
+  BACKGROUND = 'background',
+  BACKGROUND_INVERTED = 'background-inverted',
+}
+
+export enum ButtonSize {
+  M = 'size_m',
+  L = 'size_l',
+  XL = 'size_xl',
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  theme?: ThemeButton;
+  theme?: ButtonTheme;
+  square?: boolean;
+  size?: ButtonSize;
 }
 
 const AppButton: FC<AppButtonProps> = (props) => {
-  const { className, children, theme, ...otherProps } = props;
+  const {
+    className,
+    children,
+    theme = ButtonTheme.BACKGROUND,
+    square = false,
+    size = ButtonSize.M,
+    ...otherProps
+  } = props;
 
   return (
     <button
       type="button"
-      className={classNames(cls.AppButton, [className, theme ? cls[theme] : ''])}
+      className={classNames(cls.AppButton, [className, cls[theme], cls[size]], {
+        square,
+      })}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >

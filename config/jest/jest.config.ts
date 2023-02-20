@@ -63,6 +63,8 @@ export default {
     '@features/(.*)': '<rootDir>/src/features/$1',
     '@helpers/(.*)': '<rootDir>/src/helpers/$1',
     '@pages/(.*)': '<rootDir>/src/pages/$1',
+    '@pages': '<rootDir>/src/pages',
+    '@config/(.*)': '<rootDir>/config/$1',
   },
 
   // A list of paths to directories that Jest should use to search for files in

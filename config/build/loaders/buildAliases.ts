@@ -9,5 +9,6 @@ export function buildAliases() {
     '@pages': path.resolve('src/pages'),
     '@shared': path.resolve('src/shared'),
     '@widgets': path.resolve('src/widgets'),
+    '@config': path.resolve('config'),
   };
 }
