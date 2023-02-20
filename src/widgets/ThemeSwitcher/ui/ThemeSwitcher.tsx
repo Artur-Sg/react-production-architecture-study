@@ -1,4 +1,4 @@
-import AppButton, { ThemeButton } from '@shared/ui/AppButton/AppButton';
+import AppButton, { ButtonTheme } from '@shared/ui/AppButton/AppButton';
 import ThemeDark from '@shared/assets/icons/theme-dark.svg';
 import ThemeLight from '@shared/assets/icons/theme-light.svg';
 import { classNames } from '@shared/lib/classNames';
@@ -16,7 +16,7 @@ const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
     <AppButton
       onClick={toggleTheme}
       className={classNames(cls.ThemeSwitcher, [className])}
-      theme={ThemeButton.CLEAR}
+      theme={ButtonTheme.CLEAR}
     >
       {theme === Theme.DARK ? <ThemeDark /> : <ThemeLight />}
     </AppButton>
