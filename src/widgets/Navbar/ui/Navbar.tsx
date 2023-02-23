@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import AppButton, { ButtonTheme } from '@shared/ui/AppButton/AppButton';
 import AppModal from '@shared/ui/AppModal/AppModal';
 import { classNames } from '@shared/lib/classNames';
