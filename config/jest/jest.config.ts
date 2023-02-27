@@ -71,7 +71,9 @@ export default {
   roots: ['<rootDir>/src/'],
 
   // A set of global variables that need to be available in all test environments
-  // globals: {},
+  globals: {
+    __IS_DEV__: false,
+  },
 
   // All imported modules in your tests should be mocked automatically
   // automock: false,
