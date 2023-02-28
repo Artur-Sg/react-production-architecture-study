@@ -19,10 +19,10 @@ const Counter = () => {
   return (
     <div>
       <h1 data-testid="value-title">{counterValue}</h1>
-      <AppButton onClick={increment} data-testid="increment-button">
+      <AppButton onClick={increment} data-testid="increment-btn">
         Increment
       </AppButton>
-      <AppButton onClick={decrement} data-testid="decrement-button">
+      <AppButton onClick={decrement} data-testid="decrement-btn">
         Decrement
       </AppButton>
     </div>
