@@ -27,7 +27,7 @@ const AppButton: FC<AppButtonProps> = (props) => {
   const {
     className,
     children,
-    theme = ButtonTheme.BACKGROUND,
+    theme = ButtonTheme.OUTLINE,
     square = false,
     size = ButtonSize.M,
     ...otherProps

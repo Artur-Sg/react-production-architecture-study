@@ -1,16 +1,16 @@
 import { fireEvent, screen } from '@testing-library/react';
 // eslint-disable-next-line max-len
-import { renderWithRouter } from '@config/tests/componentRenderer';
+import { componentRenderer } from '@config/tests/componentRenderer';
 import Sidebar from './Sidebar';
 
 describe('Sidebar', () => {
   test('test init', () => {
-    renderWithRouter(<Sidebar />);
+    componentRenderer(<Sidebar />);
     expect(screen.getByTestId('sidebar')).toBeInTheDocument();
   });
 
   test('test sidebar toggle', () => {
-    renderWithRouter(<Sidebar />);
+    componentRenderer(<Sidebar />);
     const sidebar = screen.getByTestId('sidebar');
     const toggleBnt = screen.getByTestId('sidebar-toggle');
 

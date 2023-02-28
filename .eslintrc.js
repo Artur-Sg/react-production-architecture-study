@@ -60,7 +60,7 @@ module.exports = {
     'max-len': ['error', { code: 100, ignoreComments: true }],
     'react/jsx-wrap-multilines': ['error', { declaration: false, assignment: false }],
     'import/no-extraneous-dependencies': [
-      'error',
+      'warn',
       {
         devDependencies: true,
       },
@@ -69,5 +69,6 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
+    'no-param-reassign': 'off',
   },
 };
