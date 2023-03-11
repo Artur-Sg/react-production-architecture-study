@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import { classNames } from '@shared/lib/classNames';
 import { RoutePath } from '@shared/config/routeConfig/routeConfig';
 import { LangSwitcher } from '@widgets/LangSwitcher';
@@ -31,12 +32,12 @@ const Sidebar = ({ className }: SidebarProps) => {
     >
       <div className={cls.items}>
         <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main} className={cls.item}>
-          <MainIcon className="icon" title="Test" />
-          <span className="link">{t('mainPage')}</span>
+          <MainIcon className={cls.icon} title="Test" />
+          <span className={cls.link}>{t('mainPage')}</span>
         </AppLink>
         <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about} className={cls.item}>
-          <AboutIcon className="icon" />
-          <span className="link">{t('aboutPage')}</span>
+          <AboutIcon className={cls.icon} />
+          <span className={cls.link}>{t('aboutPage')}</span>
         </AppLink>
       </div>
 

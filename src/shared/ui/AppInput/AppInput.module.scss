@@ -1,0 +1,60 @@
+.labelWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: fit-content;
+}
+
+.input {
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: transparent;
+  text-shadow: 0 0 0 var(--primary-color);
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.caretWrapper {
+  position: relative;
+  flex-grow: 1;
+}
+
+.label {
+  margin-right: 5px;
+}
+
+.caret {
+  height: 3px;
+  width: 9px;
+  background: var(--primary-color);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+}
+
+.input + .caret {
+  opacity: 0;
+}
+
+.input:focus + .caret {
+  animation: blink 0.9s forwards infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.01;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

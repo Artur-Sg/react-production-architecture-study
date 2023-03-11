@@ -8,5 +8,7 @@
   "aboutPage": "About",
   "errorText": "An Error Occurred",
   "updatePage": "Update Page",
-  "enter": "Enter"
+  "enter": "Enter",
+  "username": "Username",
+  "password": "Password"
 }

@@ -8,5 +8,7 @@
   "aboutPage": "О сайте",
   "errorText": "Произошла ошибка",
   "updatePage": "Обновить страницу",
-  "enter": "Войти"
+  "enter": "Войти",
+  "username": "Username",
+  "password": "Password"
 }
