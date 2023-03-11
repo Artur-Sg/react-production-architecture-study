@@ -11,7 +11,7 @@ export function buildCssLoader(isDev: boolean) {
           modules: {
             auto: (path: string) => path.includes('.module.'),
             localIdentName: isDev
-              ? '[local]' // '[path][name]__[local]'
+              ? '[name]__[local]' // '[path][name]__[local]'
               : '[local]__[hash:base64:4]',
           },
         },

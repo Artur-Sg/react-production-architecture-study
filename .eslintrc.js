@@ -67,6 +67,7 @@ module.exports = {
     ],
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
+    'jsx-a11y/label-has-associated-control': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',

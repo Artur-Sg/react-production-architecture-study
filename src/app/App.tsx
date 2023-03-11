@@ -1,3 +1,4 @@
+/* eslint-disable i18next/no-literal-string */
 import { AppRouter } from '@app/providers/router';
 import { classNames } from '@shared/lib/classNames';
 import { Navbar } from '@widgets/Navbar';

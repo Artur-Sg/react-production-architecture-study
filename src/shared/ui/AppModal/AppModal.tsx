@@ -1,5 +1,5 @@
 import { classNames } from '@shared/lib/classNames';
-import { ReactNode, useCallback, useEffect } from 'react';
+import { ReactNode, useCallback, useEffect, useState } from 'react';
 import cls from './AppModal.module.scss';
 import AppPortal from '../AppPortal/AppPortal';
 
@@ -7,11 +7,14 @@ interface AppModalProps {
   className?: string;
   children?: ReactNode;
   isOpen?: boolean;
+  lazy?: boolean;
   onClose?: () => void;
 }
 
 const AppModal = (props: AppModalProps) => {
-  const { className, children, isOpen = false, onClose } = props;
+  const { className, children, lazy, isOpen = false, onClose } = props;
+
+  const [isMounted, setIsMounted] = useState(false);
 
   const closeHandler = useCallback(() => {
     if (onClose) {
@@ -30,6 +33,14 @@ const AppModal = (props: AppModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true);
+    }
+
+    return () => setIsMounted(false);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
       window.addEventListener('keydown', onKeyDown);
     }
 
@@ -45,6 +56,10 @@ const AppModal = (props: AppModalProps) => {
   const onContentClick = (e: React.MouseEvent) => {
     e.stopPropagation();
   };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <AppPortal>
