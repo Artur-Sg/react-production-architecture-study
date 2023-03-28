@@ -10,5 +10,8 @@
   "updatePage": "Update Page",
   "enter": "Enter",
   "username": "Username",
-  "password": "Password"
+  "password": "Password",
+  "authorizationForm": "Authorization Form",
+  "authError": "Wrong user or password",
+  "logout": "Logout"
 }

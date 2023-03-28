@@ -21,6 +21,7 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
   square?: boolean;
   size?: ButtonSize;
+  disabled?: boolean;
 }
 
 const AppButton: FC<AppButtonProps> = (props) => {
@@ -30,6 +31,7 @@ const AppButton: FC<AppButtonProps> = (props) => {
     theme = ButtonTheme.OUTLINE,
     square = false,
     size = ButtonSize.M,
+    disabled = false,
     ...otherProps
   } = props;
 
@@ -37,8 +39,10 @@ const AppButton: FC<AppButtonProps> = (props) => {
     <button
       type="button"
       className={classNames(cls.AppButton, [className, cls[theme], cls[size]], {
-        square,
+        [cls.square]: square,
+        [cls.disabled]: disabled,
       })}
+      disabled={disabled}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >

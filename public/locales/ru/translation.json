@@ -9,6 +9,9 @@
   "errorText": "Произошла ошибка",
   "updatePage": "Обновить страницу",
   "enter": "Войти",
-  "username": "Username",
-  "password": "Password"
+  "username": "Имя пользователя",
+  "password": "Пароль",
+  "authorizationForm": "Форма авторизации",
+  "authError": "Введен некорректный пользователь или пароль",
+  "logout": "Выйти"
 }

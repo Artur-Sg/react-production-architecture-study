@@ -18,6 +18,12 @@ Button.args = {
   children: 'Button',
 };
 
+export const ButtonDisabled = Template.bind({});
+ButtonDisabled.args = {
+  children: 'Button',
+  disabled: true,
+};
+
 export const ButtonDark = Template.bind({});
 ButtonDark.args = {
   children: 'Button',

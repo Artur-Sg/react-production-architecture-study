@@ -47,6 +47,13 @@ module.exports = {
     ],
     'no-underscore-dangle': 'off',
     '@typescript-eslint/naming-convention': 'warn',
+    '@typescript-eslint/indent': [
+      'error',
+      2,
+      {
+        ignoredNodes: ['TSTypeParameterInstantiation'],
+      },
+    ],
     'object-curly-newline': [
       'error',
       {
@@ -57,7 +64,7 @@ module.exports = {
       },
     ],
     'i18next/no-literal-string': ['error', { markupOnly: true }],
-    'max-len': ['error', { code: 100, ignoreComments: true }],
+    'max-len': ['error', { code: 120, ignoreComments: true }],
     'react/jsx-wrap-multilines': ['error', { declaration: false, assignment: false }],
     'import/no-extraneous-dependencies': [
       'warn',
