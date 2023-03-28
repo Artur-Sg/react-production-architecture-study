@@ -14,6 +14,14 @@ i18n
     interpolation: {
       escapeValue: false,
     },
+
+    react: {
+      useSuspense: false,
+    },
+
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
   });
 
 export default i18n;

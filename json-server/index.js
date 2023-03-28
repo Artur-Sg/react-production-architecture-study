@@ -30,7 +30,8 @@ server.post('/login', (req, res) => {
     );
 
     if (userFromBd) {
-      return res.json(userFromBd);
+      const { id } = userFromBd;
+      return res.json({ id, username });
     }
 
     return res.status(403).json({ message: 'User not found' });
