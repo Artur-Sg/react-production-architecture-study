@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Theme } from '@app/providers/ThemeProvider';
 import LangSwitcher from './LangSwitcher';
 import { ThemeDecorator } from '../../../../config/storybook/decorators';
-import { Theme } from '../../../app/providers/ThemeProvider';
 
 export default {
   title: 'widget/LangSwitcher',

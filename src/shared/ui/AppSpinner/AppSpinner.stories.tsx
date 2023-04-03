@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Theme } from '@app/providers/ThemeProvider';
 import { ThemeDecorator } from '../../../../config/storybook/decorators';
-import { Theme } from '../../../app/providers/ThemeProvider';
 import AppSpinner from './AppSpinner';
 
 export default {
