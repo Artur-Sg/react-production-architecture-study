@@ -1,6 +1,8 @@
+import { Suspense } from 'react';
 import { classNames } from '@shared/lib/classNames';
 import AppModal from '@shared/ui/AppModal/AppModal';
-import { LoginForm } from '../LoginForm/LoginForm';
+import AppSpinner from '../../../../shared/ui/AppSpinner/AppSpinner';
+import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 import cls from './LoginModal.module.scss';
 
 interface LoginModalProps {
@@ -19,7 +21,9 @@ export const LoginModal = (props: LoginModalProps) => {
       onClose={onClose}
       className={classNames(cls.loginmodal, [className])}
     >
-      <LoginForm />
+      <Suspense fallback={<AppSpinner />}>
+        <LoginFormAsync />
+      </Suspense>
     </AppModal>
   );
 };
