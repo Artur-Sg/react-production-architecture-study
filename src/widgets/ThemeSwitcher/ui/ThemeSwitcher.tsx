@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import AppButton, { ButtonTheme } from '@shared/ui/AppButton/AppButton';
 import ThemeDark from '@shared/assets/icons/theme-dark.svg';
 import ThemeLight from '@shared/assets/icons/theme-light.svg';
@@ -9,18 +10,14 @@ interface ThemeSwitcherProps {
   className?: string;
 }
 
-const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <AppButton
-      onClick={toggleTheme}
-      className={classNames(cls.ThemeSwitcher, [className])}
-      theme={ButtonTheme.CLEAR}
-    >
+    <AppButton onClick={toggleTheme} className={classNames(cls.ThemeSwitcher, [className])} theme={ButtonTheme.CLEAR}>
       {theme === Theme.DARK ? <ThemeDark /> : <ThemeLight />}
     </AppButton>
   );
-};
+});
 
 export default ThemeSwitcher;

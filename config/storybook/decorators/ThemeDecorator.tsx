@@ -1,4 +1,3 @@
-/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable react/function-component-definition */
 import { Story } from '@storybook/react';
 import { Theme, ThemeProvider } from '@app/providers/ThemeProvider';

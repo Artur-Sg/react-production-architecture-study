@@ -1,0 +1,14 @@
+.item {
+  margin-top: 20px;
+  align-items: center;
+  display: flex;
+}
+
+.icon {
+  fill: var(--inverted-primary-color);
+  margin-right: 5px;
+}
+
+.collapsed .link {
+  display: none;
+}

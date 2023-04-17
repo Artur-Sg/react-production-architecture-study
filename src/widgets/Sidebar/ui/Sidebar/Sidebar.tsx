@@ -1,27 +1,27 @@
-/* eslint-disable i18next/no-literal-string */
+import { memo, useMemo, useState } from 'react';
+import AppButton, { ButtonSize, ButtonTheme } from '@shared/ui/AppButton/AppButton';
 import { classNames } from '@shared/lib/classNames';
-import { RoutePath } from '@shared/config/routeConfig/routeConfig';
 import { LangSwitcher } from '@widgets/LangSwitcher';
 import { ThemeSwitcher } from '@widgets/ThemeSwitcher';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import AppButton, { ButtonSize, ButtonTheme } from '@shared/ui/AppButton/AppButton';
-import AppLink, { AppLinkTheme } from '@shared/ui/AppLInk/AppLink';
-import MainIcon from '@shared/assets/icons/home.svg';
-import AboutIcon from '@shared/assets/icons/list.svg';
+import SidebarItem from './SidebarItem/SidebarItem';
+import { SidebarItemTypeList } from '../../model/items';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
   className?: string;
 }
 
-const Sidebar = ({ className }: SidebarProps) => {
+const Sidebar = memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
-  const { t } = useTranslation();
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
   };
+
+  const itemList = useMemo(
+    () => SidebarItemTypeList.map((item) => <SidebarItem item={item} collapsed={collapsed} key={item.path} />),
+    [collapsed]
+  );
 
   return (
     <div
@@ -30,16 +30,7 @@ const Sidebar = ({ className }: SidebarProps) => {
         [cls.collapsed]: collapsed,
       })}
     >
-      <div className={cls.items}>
-        <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.main} className={cls.item}>
-          <MainIcon className={cls.icon} title="Test" />
-          <span className={cls.link}>{t('mainPage')}</span>
-        </AppLink>
-        <AppLink theme={AppLinkTheme.SECONDARY} to={RoutePath.about} className={cls.item}>
-          <AboutIcon className={cls.icon} />
-          <span className={cls.link}>{t('aboutPage')}</span>
-        </AppLink>
-      </div>
+      <div className={cls.items}>{itemList}</div>
 
       <AppButton
         type="button"
@@ -47,6 +38,7 @@ const Sidebar = ({ className }: SidebarProps) => {
         size={ButtonSize.M}
         square
         onClick={onToggle}
+        // eslint-disable-next-line i18next/no-literal-string
         data-testid="sidebar-toggle"
         className={cls.collapsedBtn}
       >
@@ -58,6 +50,6 @@ const Sidebar = ({ className }: SidebarProps) => {
       </div>
     </div>
   );
-};
+});
 
 export default Sidebar;

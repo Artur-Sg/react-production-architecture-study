@@ -21,6 +21,13 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "John",
+    "lastName": "Doe",
+    "age": 42,
+    "currency": "USD",
+    "country": "AR",
+    "city": "Buenos Aires",
+    "username": "john_doe",
+    "avatar": "https://cdn1.iconfinder.com/data/icons/website-internet/48/website_-_male_user-512.png"
   }
 }

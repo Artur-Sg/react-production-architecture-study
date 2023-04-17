@@ -1,5 +1,5 @@
 import { classNames } from '@shared/lib/classNames';
-import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import cls from './AppButton.module.scss';
 
 export enum ButtonTheme {
@@ -22,9 +22,10 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   square?: boolean;
   size?: ButtonSize;
   disabled?: boolean;
+  children?: ReactNode;
 }
 
-const AppButton: FC<AppButtonProps> = (props) => {
+const AppButton = memo((props: AppButtonProps) => {
   const {
     className,
     children,
@@ -49,6 +50,6 @@ const AppButton: FC<AppButtonProps> = (props) => {
       {children}
     </button>
   );
-};
+});
 
 export default AppButton;
