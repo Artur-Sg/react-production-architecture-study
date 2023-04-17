@@ -15,14 +15,9 @@ export const LoginModal = (props: LoginModalProps) => {
   const { className, isOpen, onClose } = props;
 
   return (
-    <AppModal
-      lazy
-      isOpen={isOpen}
-      onClose={onClose}
-      className={classNames(cls.loginmodal, [className])}
-    >
+    <AppModal lazy isOpen={isOpen} onClose={onClose} className={classNames(cls.loginmodal, [className])}>
       <Suspense fallback={<AppSpinner />}>
-        <LoginFormAsync />
+        <LoginFormAsync onSuccess={onClose} />
       </Suspense>
     </AppModal>
   );

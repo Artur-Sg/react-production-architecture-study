@@ -1,11 +1,11 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import cls from './AppSpinner.module.scss';
 
 interface AppSpinnerProps {
   className?: string;
 }
 
-const AppSpinner: FC<AppSpinnerProps> = () => (
+const AppSpinner: FC<AppSpinnerProps> = memo(() => (
   <div className={cls.spinner}>
     <div />
     <div />
@@ -20,6 +20,6 @@ const AppSpinner: FC<AppSpinnerProps> = () => (
     <div />
     <div />
   </div>
-);
+));
 
 export default AppSpinner;

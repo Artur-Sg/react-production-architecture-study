@@ -1,11 +1,15 @@
+import { NavigateOptions, To } from 'react-router';
+import { AxiosInstance } from 'axios';
 import { CounterSchema } from '@entities/Counter';
 import { UserSchema } from '@entities/User';
+import { ProfileSchema } from '@entities/Profile';
 import { LoginSchema } from '@features/AuthByUsername';
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  profile?: ProfileSchema;
 
   // Async reducers
   loginForm?: LoginSchema;
@@ -22,4 +26,14 @@ export interface ReducerManager {
 
 export interface ReduxStoreWithManager extends EnhancedStore {
   reducerManager: ReducerManager;
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance;
+  navigate?: (to: To, options?: NavigateOptions) => void;
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T;
+  extra: ThunkExtraArg;
 }

@@ -3,12 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-    'airbnb-typescript',
-    'plugin:i18next/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'airbnb-typescript', 'plugin:i18next/recommended'],
   overrides: [
     {
       files: ['**/src/**/*.test.{ts, tsx}'],
@@ -78,5 +73,11 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'no-param-reassign': 'off',
+    'implicit-arrow-linebreak': 0,
+    'object-curly-newline': 0,
+  },
+  globals: {
+    __IS_DEV__: true,
+    __API__: true,
   },
 };

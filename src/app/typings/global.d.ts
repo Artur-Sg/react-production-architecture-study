@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/naming-convention */
 declare module '*.module.css';
 declare module '*.module.scss';
 
@@ -13,5 +14,5 @@ declare module '*.svg' {
   export default ReactComponent;
 }
 
-// eslint-disable-next-line @typescript-eslint/naming-convention
 declare const __IS_DEV__: boolean;
+declare const __API__: string;

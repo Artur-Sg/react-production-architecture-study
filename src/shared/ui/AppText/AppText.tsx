@@ -1,5 +1,5 @@
 import { classNames } from '@shared/lib/classNames';
-import { FC } from 'react';
+import { memo } from 'react';
 import cls from './AppText.module.scss';
 
 export enum AppTextTheme {
@@ -14,7 +14,7 @@ interface AppTextProps {
   theme?: AppTextTheme;
 }
 
-const AppText: FC<AppTextProps> = (props) => {
+const AppText = memo((props: AppTextProps) => {
   const { className, title, text, theme = AppTextTheme.DEFAULT } = props;
 
   return (
@@ -23,6 +23,6 @@ const AppText: FC<AppTextProps> = (props) => {
       {text && <p className={cls.text}>{text}</p>}
     </div>
   );
-};
+});
 
 export default AppText;

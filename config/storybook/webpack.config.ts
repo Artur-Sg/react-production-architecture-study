@@ -22,7 +22,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config.resolve.alias = buildAliases();
 
   if (config.module) {
-    config.module.rules = config.module?.rules?.map((rule: RuleSetRule) => {
+    const rules = config.module!.rules as RuleSetRule[];
+
+    config.module.rules = rules.map((rule) => {
       if (/svg/.test(rule.test as string)) {
         return { ...rule, exclude: /\.svg$/i };
       }
@@ -43,6 +45,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config?.plugins?.push(
       new DefinePlugin({
         __IS_DEV__: true,
+        __API__: '',
       })
     );
   }

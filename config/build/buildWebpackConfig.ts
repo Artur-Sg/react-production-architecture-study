@@ -9,6 +9,7 @@ export function buildWebpackConfig({
   mode,
   port,
   paths: { entry, build, html, src },
+  apiUrl,
 }: BuildOptions): Configuration {
   const isDev = mode === 'development';
 
@@ -24,7 +25,7 @@ export function buildWebpackConfig({
       path: build,
       clean: true,
     },
-    plugins: buildPlugins(html, isDev),
+    plugins: buildPlugins(html, isDev, apiUrl),
     devtool: isDev ? 'inline-source-map' : undefined,
     devServer: isDev ? buildDevServer(port) : undefined,
     optimization: {
