@@ -24,10 +24,10 @@
     "first": "John",
     "lastName": "Doe",
     "age": 42,
-    "currency": "USD",
+    "currency": "EUR",
     "country": "AR",
     "city": "Buenos Aires",
     "username": "john_doe",
-    "avatar": "https://cdn1.iconfinder.com/data/icons/website-internet/48/website_-_male_user-512.png"
+    "avatar": "https://image.cnbcfm.com/api/v1/image/103186325-GettyImages-485001492.jpg?v=1550601747&w=720&h=405"
   }
 }
