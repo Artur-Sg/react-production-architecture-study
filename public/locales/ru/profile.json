@@ -2,5 +2,6 @@
   "userProfile": "Профиль пользователя",
   "edit": "Редактировать",
   "firstName": "Имя",
-  "lastName": "Фамилия"
+  "lastName": "Фамилия",
+  "cancel": "Отмена"
 }
