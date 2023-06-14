@@ -16,6 +16,7 @@ export default ({ mode = 'development', port = 3000, apiUrl = 'http://localhost:
     paths,
     port,
     apiUrl,
+    project: 'frontend',
   });
 
   return config;

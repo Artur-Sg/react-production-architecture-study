@@ -8,5 +8,10 @@
   "age": "Age",
   "city": "City",
   "avatarLink": "Avatar link",
-  "avatar": "Avatar"
+  "avatar": "Avatar",
+  "incorrectUserData": "Incorrect User Data",
+  "incorrectCountry": "Incorrect Country",
+  "incorrectAge": "Incorrect Age",
+  "serverError": "Server Error",
+  "noData": "No Data"
 }
