@@ -43,6 +43,7 @@ const profileSlice = createSlice({
       })
       .addCase(updateProfileData.pending, (state) => {
         state.validateErrors = undefined;
+        state.error = undefined;
         state.isLoading = true;
       })
       .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
@@ -55,7 +56,7 @@ const profileSlice = createSlice({
       .addCase(updateProfileData.rejected, (state, action) => {
         state.isLoading = false;
         state.validateErrors = action.payload;
-      });
+      })
   },
 });
 
