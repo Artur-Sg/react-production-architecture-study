@@ -3,5 +3,10 @@
   "edit": "Редактировать",
   "firstName": "Имя",
   "lastName": "Фамилия",
-  "cancel": "Отмена"
+  "cancel": "Отмена",
+  "incorrectUserData": "Некорректные данные пользователя",
+  "incorrectCountry": "Некорректная страна",
+  "incorrectAge": "Некорректный возраст",
+  "serverError": "Внутренняя ошибка",
+  "noData": "Данные не найдены"
 }

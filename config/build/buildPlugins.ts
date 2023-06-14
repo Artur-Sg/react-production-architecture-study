@@ -9,7 +9,12 @@ const progressPluginHandler = (percentage: number, message: string, ...args: unk
   console.info('\x1b[32m%s\x1b[0m', `${Math.round(percentage * 100)}%`, message, ...args);
 };
 
-export function buildPlugins(htmlPath: string, isDev: boolean, apiUrl: string): Array<WebpackPluginInstance> {
+export function buildPlugins(
+  htmlPath: string,
+  isDev: boolean,
+  apiUrl: string,
+  project: string
+): Array<WebpackPluginInstance> {
   return [
     new HtmlWebpackPlugin({
       template: htmlPath,
@@ -32,6 +37,7 @@ export function buildPlugins(htmlPath: string, isDev: boolean, apiUrl: string): 
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
       __API__: JSON.stringify(apiUrl),
+      __PROJECT__: JSON.stringify(project),
     }),
     new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: isDev ? 'server' : 'disabled' }),
   ];
