@@ -9,9 +9,23 @@ interface UseThemeResult {
 export function useTheme(): UseThemeResult {
   const { theme, setTheme } = useContext(ThemeContext);
 
-  const newTheme = theme === Theme.DEFAULT ? Theme.DARK : Theme.DEFAULT;
+  let newTheme: Theme = Theme.DEFAULT;
 
   const toggleTheme = () => {
+    switch (theme) {
+    case Theme.DARK:
+      newTheme = Theme.DEFAULT;
+      break;
+    case Theme.DEFAULT:
+      newTheme = Theme.MINT;
+      break;
+    case Theme.MINT:
+      newTheme = Theme.DARK;
+      break;
+    default:
+      newTheme = Theme.DEFAULT;
+    }
+
     setTheme?.(newTheme);
 
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
