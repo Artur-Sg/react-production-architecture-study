@@ -2,6 +2,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { WebpackPluginInstance, ProgressPlugin, DefinePlugin } from 'webpack';
+import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 
 const progressPluginHandler = (percentage: number, message: string, ...args: unknown[]) => {
   // e.g. Output each progress message directly to the console:
@@ -15,7 +16,7 @@ export function buildPlugins(
   apiUrl: string,
   project: string
 ): Array<WebpackPluginInstance> {
-  return [
+  const plugins = [
     new HtmlWebpackPlugin({
       template: htmlPath,
     }),
@@ -41,4 +42,10 @@ export function buildPlugins(
     }),
     new BundleAnalyzerPlugin({ openAnalyzer: false, analyzerMode: isDev ? 'server' : 'disabled' }),
   ];
+
+  if (isDev) {
+    plugins.push(new ReactRefreshWebpackPlugin());
+  }
+
+  return plugins;
 }
