@@ -1,4 +1,9 @@
 {
   "articlePage": "Article Page",
-  "articleDetailsPage": "Article Details Page"
+  "articleDetailsPage": "Article Details Page",
+  "notFound": "Article not found",
+  "article": {
+    "Error": "Error",
+    "loading": "Article is loading..."
+  }
 }
