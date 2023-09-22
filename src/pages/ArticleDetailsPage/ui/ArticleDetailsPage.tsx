@@ -11,7 +11,7 @@ interface ArticleDetailsPageProps {
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = (props) => {
   const { className } = props;
-  const { t } = useTranslation();
+  const { t } = useTranslation('article');
   const { id } = useParams<{ id: string }>();
 
   return (

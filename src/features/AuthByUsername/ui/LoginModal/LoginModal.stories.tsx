@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof LoginModal> = (args) => <LoginModal {...ar
 
 export const Form = Template.bind({});
 Form.args = {};
+Form.decorators = [ThemeDecorator(Theme.DEFAULT)];
 
 export const FormDark = Template.bind({});
 FormDark.args = {};

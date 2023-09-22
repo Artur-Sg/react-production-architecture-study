@@ -1,13 +1,16 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import EyeIcon from '@shared/assets/icons/eye.svg';
 import CalendarIcon from '@shared/assets/icons/calendar.svg';
+
 import DynamicModuleLoader, { ReducersList } from '@shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import AppText, { AppTextAlign, AppTextSize } from '@shared/ui/AppText/AppText';
 import { AppSkeleton } from '@shared/ui/AppSkeleton/AppSkeleton';
 import { useAppDispatch } from '@shared/lib/hooks/useAppDispatch';
+import { AppAvatar } from '@shared/ui/AppAvatar/AppAvatar';
+import { AppIcon } from '@shared/ui/AppIcon/AppIcon';
 
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services';
@@ -16,9 +19,13 @@ import {
   getArticleDetailsError,
   getArticleDetailsIsLoading,
 } from '../../model/selectors/articleDetails';
+
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
+import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
 import cls from './ArticleDetails.module.scss';
-import { AppAvatar } from '../../../../shared/ui/AppAvatar/AppAvatar';
-import { AppIcon } from '../../../../shared/ui/AppIcon/AppIcon';
 
 interface ArticleDetailsProps {
   id: string;
@@ -35,8 +42,23 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const article = useSelector(getArticleDetailsData);
   const error = useSelector(getArticleDetailsError);
 
+  const renderBlock = useCallback((block: ArticleBlock) => {
+    switch (block.type) {
+      case ArticleBlockType.CODE:
+        return <ArticleCodeBlockComponent className={cls.block} key={block.id} block={block} />;
+      case ArticleBlockType.IMAGE:
+        return <ArticleImageBlockComponent className={cls.block} key={block.id} block={block} />;
+      case ArticleBlockType.TEXT:
+        return <ArticleTextBlockComponent className={cls.block} key={block.id} block={block} />;
+      default:
+        return null;
+    }
+  }, []);
+
   useEffect(() => {
-    dispatch(fetchArticleById(id));
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchArticleById(id));
+    }
   }, [dispatch, id]);
 
   let content;
@@ -71,6 +93,8 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
           <AppIcon className={cls.icon} SVG={CalendarIcon} />
           <AppText title={article?.createdAt} />
         </div>
+
+        {article?.blocks?.map(renderBlock)}
       </>
     );
   }

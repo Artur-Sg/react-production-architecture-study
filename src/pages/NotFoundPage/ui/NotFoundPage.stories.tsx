@@ -14,6 +14,7 @@ export default {
 const Template: ComponentStory<typeof NotFoundPage> = () => <NotFoundPage />;
 
 export const Light = Template.bind({});
+Light.decorators = [ThemeDecorator(Theme.DEFAULT)];
 Light.args = {};
 
 export const Dark = Template.bind({});
