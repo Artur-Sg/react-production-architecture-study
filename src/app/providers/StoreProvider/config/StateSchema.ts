@@ -5,11 +5,13 @@ import { UserSchema } from '@entities/User';
 import { ProfileSchema } from '@entities/Profile';
 import { LoginSchema } from '@features/AuthByUsername';
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import { ArticleDetailsSchema } from '../../../../entities/Article';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   profile?: ProfileSchema;
+  articleDetails?: ArticleDetailsSchema;
 
   // Async reducers
   loginForm?: LoginSchema;

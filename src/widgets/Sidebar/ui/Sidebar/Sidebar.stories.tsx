@@ -16,6 +16,7 @@ const Template: ComponentStory<typeof Sidebar> = () => <Sidebar />;
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [
+  ThemeDecorator(Theme.DEFAULT),
   StoreDecorator({
     user: { authData: { id: '1', username: 'storybook' } },
   }),

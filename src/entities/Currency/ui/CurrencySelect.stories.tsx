@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof CurrencySelect> = (args) => <CurrencySelec
 
 export const Prime = Template.bind({});
 Prime.args = {};
+Prime.decorators = [ThemeDecorator(Theme.DEFAULT)];
 
 export const Dark = Template.bind({});
 Dark.args = {};

@@ -19,7 +19,7 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
   rules: {
-    indent: [2, 2],
+    indent: [2, 2, { SwitchCase: 1 }],
     'import/prefer-default-export': 'off',
     'react/jsx-indent': ['error', 2],
     'react/jsx-indent-props': ['error', 2],
@@ -47,6 +47,7 @@ module.exports = {
       2,
       {
         ignoredNodes: ['TSTypeParameterInstantiation'],
+        SwitchCase: 1,
       },
     ],
     'object-curly-newline': [

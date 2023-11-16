@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof LangSwitcher> = () => <LangSwitcher />;
 
 export const Light = Template.bind({});
 Light.args = {};
+Light.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const Dark = Template.bind({});
 Dark.args = {};

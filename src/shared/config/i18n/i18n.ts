@@ -19,6 +19,8 @@ i18n
       useSuspense: false,
     },
 
+    load: 'languageOnly',
+
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
     },

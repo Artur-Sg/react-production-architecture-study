@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof PageLoader> = () => <PageLoader />;
 
 export const Light = Template.bind({});
 Light.args = {};
+Light.decorators = [ThemeDecorator(Theme.DEFAULT)];
 
 export const Dark = Template.bind({});
 Dark.args = {};

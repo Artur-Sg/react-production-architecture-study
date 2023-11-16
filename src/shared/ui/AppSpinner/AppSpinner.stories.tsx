@@ -15,6 +15,7 @@ const Template: ComponentStory<typeof AppSpinner> = () => <AppSpinner />;
 
 export const Primary = Template.bind({});
 Primary.args = {};
+Primary.decorators = [ThemeDecorator(Theme.DEFAULT)];
 
 export const PrimaryDark = Template.bind({});
 PrimaryDark.args = {};

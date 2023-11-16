@@ -14,5 +14,6 @@
   "authorizationForm": "Authorization Form",
   "authError": "Wrong user or password",
   "logout": "Logout",
-  "profile": "Profile"
+  "profile": "Profile",
+  "articles": "Articles"
 }
